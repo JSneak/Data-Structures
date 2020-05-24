@@ -101,45 +101,28 @@ public:
 	}
 
 
-	void pop()
+void pop() {
 
-	{
+    queue<T>  temp;
+    T top;
 
-		queue<T>  temp;
+    if (!Q.empty()) {
+        top = Q.front();
+        Q.pop();
 
-		T top;
+        while(!Q.empty()) {
+            temp.push(top);
+            Q.pop();
+            top = Q.front();
+        }
+        Q = temp;
+    }
 
-		if (!Q.empty()){
-
-		top = Q.front();
-
-		Q.pop();
-
-		while (!Q.empty()) 
-
-		{
-
-		temp.push(top);
-
-		Q.pop();
-
-		top = Q.front();
-
-		}
-
-		Q = temp;
-
-		}
-
-	}
+}
 
 
-	void push(T element)
-
-	{
-
-	Q.push(element);
-
-	}
+void push(T element) {
+    Q.push(element);
+}
 
 };
